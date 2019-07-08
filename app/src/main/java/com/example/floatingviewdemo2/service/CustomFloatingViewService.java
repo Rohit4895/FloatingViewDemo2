@@ -1,4 +1,4 @@
-package com.example.floatingviewdemo2;
+package com.example.floatingviewdemo2.service;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -19,6 +19,10 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.floatingviewdemo2.R;
+import com.example.floatingviewdemo2.utils.Users;
 
 import jp.co.recruit_lifestyle.android.floatingview.FloatingViewListener;
 import jp.co.recruit_lifestyle.android.floatingview.FloatingViewManager;
@@ -33,6 +37,7 @@ public class CustomFloatingViewService extends Service implements FloatingViewLi
 
 
     private FloatingViewManager mFloatingViewManager;
+
 
 
     @Override
@@ -50,8 +55,7 @@ public class CustomFloatingViewService extends Service implements FloatingViewLi
         iconView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                getUserCredentialView();
             }
         });
 
@@ -62,7 +66,7 @@ public class CustomFloatingViewService extends Service implements FloatingViewLi
 
         loadDynamicOptions();
 
-        final FloatingViewManager.Options options = loadOptions(metrics);
+        final FloatingViewManager.Options options = loadOptions();
         mFloatingViewManager.addViewToWindow(iconView, options);
 
 
@@ -71,6 +75,13 @@ public class CustomFloatingViewService extends Service implements FloatingViewLi
         return START_REDELIVER_INTENT;
     }
 
+    private void getUserCredentialView(){
+       /* Users user1 = new Users("abc","abc@123");
+        Users user2 = new Users("xyz","xyz@123");
+
+      */
+
+    }
 
     @Override
     public void onDestroy() {
@@ -132,7 +143,7 @@ public class CustomFloatingViewService extends Service implements FloatingViewLi
 
     }
 
-    private FloatingViewManager.Options loadOptions(DisplayMetrics metrics) {
+    private FloatingViewManager.Options loadOptions() {
         final FloatingViewManager.Options options = new FloatingViewManager.Options();
         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 

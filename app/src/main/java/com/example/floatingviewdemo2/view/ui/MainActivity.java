@@ -1,4 +1,4 @@
-package com.example.floatingviewdemo2;
+package com.example.floatingviewdemo2.view.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -16,10 +16,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
+
+import com.example.floatingviewdemo2.R;
+import com.example.floatingviewdemo2.service.CustomFloatingViewService;
 
 import jp.co.recruit_lifestyle.android.floatingview.FloatingViewManager;
 
